@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="indx.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #cbd8e1;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: linear-gradient(to bottom right, #82a5bd, #50725e); /* Adjust colors as needed */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar {
+    flex: 0 0 250px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+
+  .email-list,
+  .meeting-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    transition: background-color 0.3s;
+  }
+
+  .item:hover {
+    background-color: #e6c7c7;
+  }
+
+  .details {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .actions button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .actions button:hover {
+    background-color: #454ba0;
+  }
+  
+  </style>
+<body>
+    <header>  
+        <div class="logo">
+            <!-- <img src="logo.png" alt="Mail Management Platform Logo"> -->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="indx.html">Home</a></li>
+                <li><a href="inbox.html">Inbox</a></li>
+                <li><a href="task.html">Meetings</a></li>
+                <li><a href="help.html">Help / Support</a></li>
+            </ul>
+        </nav>
+        <div class="hindenburg-icon">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div id="hindenburgBox" style="height: 500px; width: 100%; background-color: black; float: right; display: none; ">
+            <ul">
+                <li style="margin-top: 12px;  list-style-type: none; font-size: 30px; margin-left: 10vw; margin-bottom: 22px;" ><a href="#" style="color: white ;">Home</a></li>
+                <li><a href="inbox.html" style="color: white;">Inbox</a></li>
+                <li><a href="task.html" style="color: white;">Meetings</a></li>
+                <li><a href="#" style="color: white;" >Help / Support</a></li>
+            </ul>
+        </div>
+        <div id="cross">
+            <i style="display: none;" class="fa-solid fa-xmark"></i>
+        </div>
+
+    </header>
+
+
+     <div class="container">
+    <div class="main-content">
+      <h1>Email & Meetings</h1>
+      <div class="email-list" id="inbox">
+        <!-- Email list will be populated here -->
+      </div>
+      <h2>Upcoming Meetings</h2>
+      <ul class="meeting-list" id="meetings">
+        <!-- Meeting list will be populated here -->
+        <li class="item" style="height: 69px; font-size: 22px; color:black;">
+            <strong>Team Meeting</strong>
+            <p>Date: 2024-03-15, Time: 10:00 AM</p>
+            <p>Location: Conference Room A</p>
+          </li>
+          <li class="item" style="height: 69px; font-size: 22px; color:black;" >
+            <strong>Project Review</strong>
+            <p>Date: 2024-03-16, Time: 2:00 PM</p>
+            <p>Location: Online</p>
+          </li>
+          <li class="item" style="height: 69px; font-size: 22px; color:black;">
+            <strong>Client Presentation</strong>
+            <p>Date: 2024-03-17, Time: 11:30 AM</p>
+            <p>Location: Client Office</p>
+          </li>
+          <li class="item" style="height: 69px; font-size: 22px; color:black;">
+            <strong>Client Presentation</strong>
+            <p>Date: 2024-03-17, Time: 11:30 AM</p>
+            <p>Location: Client Office</p>
+          </li>
+          <li class="item" style="height: 69px; font-size: 22px; color:black;">
+            <strong>Client Presentation</strong>
+            <p>Date: 2024-03-17, Time: 11:30 AM</p>
+            <p>Location: Client Office</p>
+          </li>
+          <li class="item" style="height: 69px; font-size: 22px; color:black;">
+            <strong>Client Presentation</strong>
+            <p>Date: 2024-03-17, Time: 11:30 AM</p>
+            <p>Location: Client Office</p>
+          </li>
+
+      </ul>
+    </div>
+  </div>
+  <section class="footer">
+    <h2 style="color: white; text-align: center; margin-top: 33px; font-size: 23px;">Questions?</h2>
+    <p style="color: rgb(90, 90, 227); text-align: center; text-decoration: underline; font-size: 23px; margin-top: 23px; cursor: pointer;">Chat with us? | Meet with us</p>
+    <img src="googleplay.png" alt="" style=" height: 100px; width: 300px; margin-left: 30vw; margin-top: 20px; border: 3px solid white; border-radius: 58px; cursor: pointer;">    
+    <h3 style=" margin-top: 33px; color: white; font-size: 23px; text-align: center;">© 2024-2025 Your Company Name. All rights reserved.
+    </h3>
+</section>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="indx.css">
+    <link rel="stylesheet" href="indx.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-ZJcAMF4J0Qv3MpfkO83AMwp8fevoBxVSW+J3+gW0VYUBGhq3dbFvRGGxTfwFh41Z" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet"  media="screen and (max-width: 1700px)" href="responsive.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hindenburg&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-zzFQLoCi9yJmUC63/b14Nqzpqe1Oz6tegc1EnJvJdwpQSEI9jKH7LFFb0cgytiyk" crossorigin="anonymous">
+</head>
+
+<style>
+    body{
+        background-color: #e7ede8;
+    }
+    #login:hover{
+        color: rgb(54, 54, 179);
+    }
+</style>
+<style>
+    .services{
+        display: flex;
+    }
+    .services .service p{
+        height: 300px;
+         width: 500px;
+          font-size: 30px;
+           margin-left: 30px;
+            width: 50%;
+             color: black;
+             background-color: transparent;
+    }
+    .premium-plan-box {
+        box-shadow: 8px 8px 8px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.premium-plan-box h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.premium-plan-box p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.premium-plan-box ul {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.premium-plan-box ul li {
+  margin-bottom: 10px;
+}
+
+.premium-plan-box .price {
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.premium-plan-box .btn {
+  display: inline-block;
+  background-color: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.premium-plan-box .btn:hover {
+  background-color: #45a049;
+}
+
+</style>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var composeBox = document.getElementById("compose-box");
+        var scheduleBox = document.getElementById("schedule-meeting-box"); // Corrected ID
+        var composeBtn = document.getElementById("compose-btn");
+        var scheduleBtn = document.getElementById("schedule-btn");
+        var hindenburgbox = document.getElementById("hindenburgbox");
+        composeBtn.addEventListener("click", function() {
+            if (scheduleBox.style.display === "block") {
+                scheduleBox.style.display = "none"; // Hide the schedule box
+            }
+            if (composeBox.style.display === "none" || composeBox.style.display === "") {
+                composeBox.style.display = "block"; // Show the compose box
+            } else {
+                composeBox.style.display = "none"; // Hide the compose box
+            }
+        });
+
+        var documentLink = document.getElementById('documentLink');
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            // Get the selected file
+            const file = event.target.files[0];
+            
+            // Check if a file was selected
+            if (file) {
+                // Create a URL for the selected file
+                const fileURL = URL.createObjectURL(file);
+                
+                // Open the image in a new window/tab
+                window.open(fileURL);
+            }
+        });
+        var hindenburgIcon = document.querySelector('.hindenburg-icon');
+
+// Get the Hindenburg box
+var hindenburgBox = document.getElementById('hindenburgBox');
+var cross = document.getElementById('cross');
+// Toggle the display of the Hindenburg box when the icon is clicked
+hindenburgIcon.addEventListener('click', function() {
+    // Toggle the display property
+    if (hindenburgBox.style.display === 'none') {
+        hindenburgBox.style.display = 'block';
+    } else {
+        hindenburgBox.style.display = 'none';
+    }
+});
+       
+
+        scheduleBtn.addEventListener("click", function() {
+            if (composeBox.style.display === "block") {
+                composeBox.style.display = "none"; // Hide the compose box
+            }
+            if (scheduleBox.style.display === "none" || scheduleBox.style.display === "") {
+                scheduleBox.style.display = "block"; // Show the schedule box
+            } else {
+                scheduleBox.style.display = "none"; // Hide the schedule box
+            }
+        });
+
+    });
+</script>
+
+<body>
+    <header>
+       
+        <div class="logo">
+            <!-- <img src="logo.png" alt="Mail Management Platform Logo"> -->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="indx.html">Home</a></li>
+                <li><a href="inbox.html">Inbox</a></li>
+                <li><a href="task.html">Meetings</a></li>
+                <li><a href="help.html">Help / Support</a></li>
+                <li><a href="signup.html" style="margin-left: 30vw;"><span id="login">Login</span>/Register</a></li>
+            </ul>
+        </nav>
+        <div class="hindenburg-icon">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div id="hindenburgBox" style="height: 300px; width: 100%; background-color: black; float: right; display: none; ">
+            <ul">
+                <li style="margin-top: 12px;  list-style-type: none; font-size: 30px; margin-left: 10vw; margin-bottom: 22px;" ><a href="#" style="color: white ;">Home</a></li>
+                <li><a href="inbox.html" style="color: white;">Inbox</a></li>
+                <li><a href="task.html" style="color: white;">Meetings</a></li>
+                <li><a href="help.html" style="color: white;" >Help / Support</a></li>
+            </ul>
+        </div>
+
+        <div id="cross">
+            <i style="display: none;" class="fa-solid fa-xmark"></i>
+        </div>
+    </header>
+    
+    <section class="welcome">
+        <img src="email-background-images-1.jpg.crdownload" alt="">
+        <h2 style="flex-wrap: wrap;">Welcome back, [User]!</h2>
+        <div class="overview">
+            <p>You have <strong>3 unread emails</strong> and <strong>1 meeting</strong> scheduled for today.</p>
+        </div>
+        <div class="quick-actions">
+            <button id="compose-btn">Compose Email</button>
+            <button id="schedule-btn">Schedule Meeting</button>
+        </div>
+
+
+        <div class="compose-box" id="compose-box" style="display: none; height: 500px;">
+            <h3 style="font-size: 25px;">Compose Mail</h3>
+            <form action="#">
+                <label for="to" style="font-size: 25px;">To:</label>
+                <input type="text" id="to" name="to" placeholder="Recipient's email">
+        
+                <label for="subject"style="font-size: 25px;">Subject:</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject">
+
+                <label for="message" style="font-size: 25px;">Message:</label>
+                <div class="area" style="height: 100px; width: 329px; background-color: white;">
+                    <!-- Icon to trigger file input -->
+                    <label for="fileInput">
+                        <i id="documentlevel" style="float: right; margin-right: 21px; margin-top: 70px; cursor: pointer;" class="fas fa-paperclip"></i>
+                    </label>
+                    <!-- Hidden file input -->
+                    <input type="file" id="fileInput" style="display: none;">
+                </div>
+                <button type="submit" style="margin-top: 20px; width: 100%; font-size: 20px; ">Send</button>
+
+            </form>
+        </div>
+        
+
+        <!-- schedule meeting -->
+       
+        <div class="schedule-meeting-box" id="schedule-meeting-box" style="display: none; height: 500px;">
+            <h3 style="font-size: 29px;">Schedule Meeting</h3>
+            <form action="#">
+                <label for="meeting-date" style="font-size: 25px;">Meeting Date:</label>
+                <input type="date" id="meeting-date" name="meeting-date">
+                
+                <label for="meeting-time" style="font-size: 25px;">Meeting Time:</label>
+                <input type="time" id="meeting-time" name="meeting-time">
+                
+                <label for="meeting-topic" style="font-size: 25px;">Meeting Topic:</label>
+                <input type="text" id="meeting-topic" name="meeting-topic" placeholder="Enter meeting topic">
+                
+                <button type="submit" style="margin-top: 20px; width: 100%; font-size: 20px;">Schedule</button>
+            </form>
+        </div>
+        
+
+        <!-- create task -->
+
+
+        
+    </section>
+
+    
+    <h1 style="text-align: center; color: rgb(213, 213, 236); background-color: rgb(185, 94, 185); font-size: 33px; ">Email Management Services</h1>
+
+   <section class="services">
+    <div class="service">
+        <h2 style="margin-left: 30px; font-size: 38px; margin-top: 23px; background-color: rgb(86, 56, 184); width: 48% ; border-radius: 20px;padding: 23px; color: aliceblue;">Inbox Organization</h2>
+        <img src="Q76ULG (1).webp" style="height: 300px; width: 500px; border-radius: 23px; margin-left: 30px; margin-top: 30px; box-shadow: 12px 12px ; " alt="">
+        <p style="margin-top: 12px;">Tools to organize incoming emails, such as folders, labels, tags, and filters, to prioritize and categorize messages.</p>
+      </div> 
+
+    
+
+      <div class="service">
+        <h2 style="margin-left: 30px; font-size: 38px; margin-top: 23px; background-color: rgb(86, 56, 184); width: 48% ; border-radius: 20px;padding: 23px; color: aliceblue;">Spam Protection</h2>
+        <img src="CAN-SPAM_1600X900-01.png" style="height: 300px; width: 500px; border-radius: 23px; margin-left: 30px; margin-top: 30px; box-shadow: 12px 12px;" alt="">
+        <p style="margin-top: 12px; height: 300px; width: 300px; font-size: 34px; margin-left: 30px; width: 50%; color: rgb(245, 52, 52) transparent;">Tools to organize incoming emails, such as folders, labels, tags, and filters, to prioritize and categorize messages.</p>
+      </div> 
+   </section>
+    
+
+<section class="banner">
+    <div class="banners">
+        <img src="email-service-security-banner-free-vector.jpg" alt="" style=" background-repeat: no-repeat; background-size: cover; margin-left: 23px; border-radius: 23px; box-shadow: 12px 12px 12px 8px;">
+    </div>
+    <div class="content">
+        <h2 style="font-weight: 900; font-size: 33px; margin-left: 94px; margin-top: 99px; color: blue;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  ">Ready To Transform your Email Experience?</h2>
+        <button style="height: 50px; width: 190px; margin-left: 30vw; margin-top: 60px; background-color: bisque; font-size: 20px; cursor: pointer; border-radius: 8px; border: 2px solid rebeccapurple; text-shadow: 1px 1px; ">Explore Now</button>
+    </div>
+</section>
+    
+
+<h1 style="background-color: #f7c3c3; margin-top: 33px; text-align: center; color: rgb(106, 23, 183);">Select The Buisness Email Plan That Suits for You Best</h1>
+
+    
+<section class="plans" style="display: flex;">
+    <div class="premium-plan-box">
+        <h2>Buisness Starter</h2>
+        <p>Unlock exclusive features for enhanced productivity and convenience.</p>
+        <ul>
+          <li>Advanced email analytics</li>
+          <li>Integrated task management</li>
+          <li>Email snooze functionality</li>
+          <li>Customizable email templates</li>
+          <!-- Add more premium features here -->
+        </ul>
+        <p class="price">$9.99/month</p>
+        <a href="#" class="btn">Get Premium</a>
+      </div>
+      <div class="premium-plan-box">
+        <h2>Buisness Premium</h2>
+        <p>Unlock exclusive features for enhanced productivity and convenience.</p>
+        <ul>
+          <li>10 GB Email Storage</li>
+          <li>10 Forwarding Rules</li>
+          <li>
+            50 Email Aliases</li>
+          <li>Antivirus Check</li>
+          <!-- Add more premium features here -->
+        </ul>
+        <p class="price">$9.99/month</p>
+        <a href="#" class="btn">Get Premium</a>
+      </div>
+</section>
+
+<h1 style="margin-top: 33px; margin-left: 44px; text-align: center  ;">It Only Takes a Few Clicks to Set It Up</h1>
+<section class="card-container">
+    <div class="card card1" style="height: 300px; margin-left: 23px; box-shadow: 12px 12px;">
+        <!-- Content for card 1 -->
+        <span style="color: blueviolet; font-size: 44px;">01</span>
+        <h3 >Select an Email Hosting Plan</h3>
+        <p style="font-size: 23px;">Running a new business? <br>Go with <br> the ₹39.00/mo Business Starter plan. <br> If you need more resources, <br> </p>
+    </div>
+    <div class="card card2" style="box-shadow: 12px 12px;">
+        <!-- Content for card 2 -->
+        <span style="color: blueviolet; font-size: 44px;">02</span>
+        <h3>Proceed to CheckOut</h3>
+        <p style="font-size: 23px;">Select the number <br>of mailboxes and subscription <br> </p>
+    </div>
+</section>
+
+
+    
+    <section class="footer">
+        <h2 style="color: white; text-align: center; margin-top: 33px; font-size: 23px;">Questions?</h2>
+        <p style="color: rgb(90, 90, 227); text-align: center; text-decoration: underline; font-size: 23px; margin-top: 23px; cursor: pointer;">Chat with us? | Meet with us</p>
+        <img src="googleplay.png" alt="" style=" height: 100px; width: 300px; margin-left: 39vw; margin-top: 20px;  cursor: pointer;">        
+        <h3 style=" margin-top: 33px; color: white; font-size: 23px; text-align: center;">© 2024-2025 Your Company Name. All rights reserved.
+        </h3>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="indx.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Inbox</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #d7e2e9;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+
+  .email {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+  }
+
+  .email:hover {
+    background-color: #e6c7c7;
+  }
+
+  .email.read {
+    background-color: #f4f4f4;
+  }
+
+  .email p {
+    margin: 5px 0;
+  }
+
+  .email strong {
+    font-weight: bold;
+  }
+
+  .icons {
+    
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+
+  .icons i {
+    
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #888;
+    cursor: pointer;
+  }
+
+  .search-box {
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+  }
+
+  .search-box input[type="text"] {
+    padding: 10px;
+    width: 70%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .search-box input[type="text"]:focus {
+    border-color: #333;
+  }
+
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 160px;
+    transform: translateY(-50%);
+    color: #888;
+    cursor: pointer;
+  }
+
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var composeBox = document.getElementById("compose-box");
+        var scheduleBox = document.getElementById("schedule-meeting-box"); // Corrected ID
+        var composeBtn = document.getElementById("compose-btn");
+        var scheduleBtn = document.getElementById("schedule-btn");
+        var hindenburgbox = document.getElementById("hindenburgbox");
+        composeBtn.addEventListener("click", function() {
+            if (scheduleBox.style.display === "block") {
+                scheduleBox.style.display = "none"; // Hide the schedule box
+            }
+            if (composeBox.style.display === "none" || composeBox.style.display === "") {
+                composeBox.style.display = "block"; // Show the compose box
+            } else {
+                composeBox.style.display = "none"; // Hide the compose box
+            }
+        });
+
+
+        var hindenburgIcon = document.querySelector('.hindenburg-icon');
+
+// Get the Hindenburg box
+var hindenburgBox = document.getElementById('hindenburgBox');
+var cross = document.getElementById('cross');
+// Toggle the display of the Hindenburg box when the icon is clicked
+hindenburgIcon.addEventListener('click', function() {
+    // Toggle the display property
+    if (hindenburgBox.style.display === 'none') {
+        hindenburgBox.style.display = 'block';
+    } else {
+        hindenburgBox.style.display = 'none';
+    }
+});
+       
+
+        scheduleBtn.addEventListener("click", function() {
+            if (composeBox.style.display === "block") {
+                composeBox.style.display = "none"; // Hide the compose box
+            }
+            if (scheduleBox.style.display === "none" || scheduleBox.style.display === "") {
+                scheduleBox.style.display = "block"; // Show the schedule box
+            } else {
+                scheduleBox.style.display = "none"; // Hide the schedule box
+            }
+        });
+
+    });
+</script>
+
+</head>
+<body>
+    <header>
+       
+        <div class="logo">
+            <!-- <img src="logo.png" alt="Mail Management Platform Logo"> -->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="indx.html">Home</a></li>
+                <li><a href="inbox.html">Inbox</a></li>
+                <li><a href="task.html">Meetings</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Help / Support</a></li>
+            </ul>
+        </nav>
+        <div class="hindenburg-icon">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div id="hindenburgBox" style="height: 500px; width: 100%; background-color: black; float: right; display: none; ">
+            <ul">
+                <li style="margin-top: 12px;  list-style-type: none; font-size: 30px; margin-left: 10vw; margin-bottom: 22px;" ><a href="#" style="color: white ;">Home</a></li>
+                <li><a href="#" style="color: white;">Inbox</a></li>
+                <li><a href="#" style="color: white;">Meetings</a></li>
+                <li><a href="#" style="color: white;" >Help / Support</a></li>
+            </ul>
+        </div>
+        <div id="cross">
+            <i style="display: none;" class="fa-solid fa-xmark"></i>
+        </div>
+
+    </header>
+
+  <div class="container">
+    <h1>Email Inbox</h1>
+
+    <div class="search-box" id="searchBox">
+      <input type="text" id="searchInput" placeholder="Search emails...">
+      <i class="fas fa-search search-icon" onclick="searchEmails()"></i>
+    </div>
+
+    <div id="inbox"></div>
+  </div>
+
+  <script>
+    // Sample email data
+    const emails = [
+      { id: 1, subject: 'Sample Email 1', body: 'Hello, this is the body of the first email.', date: '2024-03-01' },
+      { id: 2, subject: 'Sample Email 2', body: 'This is another sample email.', date: '2024-03-02' },
+      { id: 3, subject: 'Sample Email 3', body: 'Yet another sample email here.', date: '2024-03-03' },
+      { id: 4, subject: 'Sample Email 4', body: 'Yet another sample email here.', date: '2024-03-03' },
+      { id: 5, subject: 'Sample Email 5', body: 'Yet another sample email here.', date: '2024-03-03' },
+      { id: 6, subject: 'Sample Email 6', body: 'Yet another sample email here.', date: '2024-03-03' },
+      { id: 7, subject: 'Sample Email 7', body: 'Yet another sample email here.', date: '2024-03-03' },
+      { id: 8, subject: 'Sample Email 8', body: 'Yet another sample email here.', date: '2024-03-03' },
+      { id: 9, subject: 'Sample Email 9', body: 'Yet another sample email here.', date: '2024-03-03' },
+      { id: 10, subject: 'Sample Email 10', body: 'Yet another sample email here.', date: '2024-03-03' }
+    ];
+
+    // Function to render emails
+    function renderEmails() {
+      const inboxDiv = document.getElementById('inbox');
+      inboxDiv.innerHTML = '';
+      emails.forEach(email => {
+        const emailDiv = document.createElement('div');
+        emailDiv.classList.add('email');
+        if (email.read) {
+          emailDiv.classList.add('read');
+        }
+        emailDiv.innerHTML = `<strong>${email.subject}</strong><p>${email.body}</p>`;
+        const iconsDiv = document.createElement('div');
+        iconsDiv.classList.add('icons');
+        iconsDiv.innerHTML = `
+          <i class="fas fa-trash" onclick="deleteEmail(${email.id})"></i>
+          <i class="fas fa-archive" onclick="archiveEmail(${email.id})"></i>
+          <i class="fas fa-bookmark" onclick="bookmarkEmail(${email.id})"></i>
+        `;
+        emailDiv.appendChild(iconsDiv);
+        emailDiv.addEventListener('click', () => {
+          openEmail(email);
+        });
+        inboxDiv.appendChild(emailDiv);
+      });
+    }
+
+    // Function to toggle read status
+    function toggleRead(emailId) {
+      const email = emails.find(email => email.id === emailId);
+      if (email) {
+        email.read = !email.read;
+        renderEmails();
+      }
+    }
+
+    // Function to delete email
+    function deleteEmail(emailId) {
+      const index = emails.findIndex(email => email.id === emailId);
+      if (index !== -1) {
+        emails.splice(index, 1);
+        renderEmails();
+      }
+    }
+
+    // Function to archive email
+    function archiveEmail(emailId) {
+      const email = emails.find(email => email.id === emailId);
+      if (email) {
+        // Implement your archive logic here
+        console.log(`Archiving email with id ${emailId}`);
+      }
+    }
+
+    // Function to bookmark email
+    function bookmarkEmail(emailId) {
+      const email = emails.find(email => email.id === emailId);
+      if (email) {
+        // Implement your bookmark logic here
+        console.log(`Bookmarking email with id ${emailId}`);
+      }
+    }
+
+    // Function to open full email
+    function openEmail(email) {
+      console.log("Opening email:", email);
+      // Here you can implement logic to display the full email
+    }
+
+    // Function to search emails
+    function searchEmails() {
+      const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+      const filteredEmails = emails.filter(email => email.subject.toLowerCase().includes(searchTerm) || email.body.toLowerCase().includes(searchTerm));
+      renderSearchedEmails(filteredEmails);
+    }
+
+    // Function to render searched emails
+    function renderSearchedEmails(filteredEmails) {
+      const inboxDiv = document.getElementById('inbox');
+      inboxDiv.innerHTML = '';
+      filteredEmails.forEach(email => {
+        const emailDiv = document.createElement('div');
+        emailDiv.classList.add('email');
+        if (email.read) {
+          emailDiv.classList.add('read');
+        }
+        emailDiv.innerHTML = `<strong>${email.subject}</strong><p>${email.body}</p>`;
+        const iconsDiv = document.createElement('div');
+        iconsDiv.classList.add('icons');
+        iconsDiv.innerHTML = `
+          <i class="fas fa-trash" onclick="deleteEmail(${email.id})"></i>
+          <i class="fas fa-archive" onclick="archiveEmail(${email.id})"></i>
+          <i class="fas fa-bookmark" onclick="bookmarkEmail(${email.id})"></i>
+        `;
+        emailDiv.appendChild(iconsDiv);
+        emailDiv.addEventListener('click', () => {
+          openEmail(email);
+        });
+        inboxDiv.appendChild(emailDiv);
+      });
+    }
+
+    // Initial rendering
+    renderEmails();
+  </script>
+
+   <section class="footer">
+    <h2 style="color: white; text-align: center; margin-top: 33px; font-size: 23px;">Questions?</h2>
+    <p style="color: rgb(90, 90, 227); text-align: center; text-decoration: underline; font-size: 23px; margin-top: 23px; cursor: pointer;">Chat with us? | Meet with us</p>
+    <img src="googleplay.png" alt="" style=" height: 100px; width: 300px; margin-left: 30vw; margin-top: 20px;  cursor: pointer;">
+    
+    <h3 style=" margin-top: 33px; color: white; font-size: 23px; text-align: center;">© 2024-2025 Your Company Name. All rights reserved.
+    </h3>
+  </section>
+</body> 
+</html>

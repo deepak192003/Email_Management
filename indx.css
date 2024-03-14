@@ -1,0 +1,574 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* Header Styles */
+header {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quick-actions button{
+    font-size: 20px;
+    width: 16%;
+    margin-bottom: 24px;
+    display: flex;
+    padding-left: 34px;
+}
+.logo img {
+    max-height: 50px; /* Adjust the maximum height of the logo */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+    font-size: 23px;
+    
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #f5e3e3; /* Adjust link color */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #191008; /* Adjust hover color */
+}
+
+  /* home page content
+   */
+   .welcome {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.welcome h2 {
+    font-size: 39px;
+    margin-bottom: 10px;
+}
+
+.welcome .overview {
+    margin-bottom: 15px;
+}
+.overview p{
+    font-size: 23px;
+}
+.overview strong{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.overview p{
+    color: #814203;
+}
+.overview strong{
+    color: #169338;
+}
+.welcome {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Adjust the height of the section as needed */
+    overflow: hidden; /* Hide overflow content */
+}
+
+.welcome img {
+
+    float: right;
+    margin-right: 100px;
+   bottom: 90px;
+   box-shadow: 20px 10px 20px rgba(0, 0, 0, 0.3);
+   transform: rotate(50deg); /* Rotate the image by 120 degrees */
+}
+
+
+.welcome .quick-actions button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.welcome .quick-actions button:hover {
+    background-color: #0056b3;
+}
+
+.welcome .tips {
+    font-style: italic;
+}
+
+.compose-box,.schedule-meeting-box,.create-task-box{
+    height: 390px;
+    display: none; /* Initially hide the compose box */
+    position: absolute; /* Position the box absolutely */
+    top: 60%; /* Position vertically at the middle of the viewport */
+    left: 50%; /* Position horizontally at the middle of the viewport */
+    transform: translate(-116%, -50%); /* Center the box */
+    background-color: #858ceb;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px;
+}
+
+.compose-box h3 {
+    margin-top: 0;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.compose-box form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.compose-box form input[type="text"],
+.compose-box form textarea {
+    width: calc(100% - 20px); /* Adjust the width to fill the container */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.compose-box form textarea {
+    height: 100px; /* Adjust the height as needed */
+}
+
+.compose-box form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.compose-box form button:hover {
+    background-color: #0056b3;
+}
+
+
+
+.schedule-meeting-box h3 {
+    margin-top: 0;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.schedule-meeting-box form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.schedule-meeting-box form input[type="date"],
+.schedule-meeting-box form input[type="time"],
+.schedule-meeting-box form input[type="text"] {
+    width: calc(100% - 20px); /* Adjust the width to fill the container */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.schedule-meeting-box form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.schedule-meeting-box form button:hover {
+    background-color: #0056b3;
+}
+
+.create-task-box {
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    display: none;
+    background-color: #f9f9f9; /* Background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+}
+
+/* Style for the create task box header */
+.create-task-box h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* Style for the create task box form elements */
+.create-task-box form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.create-task-box form input[type="text"],
+.create-task-box form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical; /* Allow vertical resize for textarea */
+}
+
+/* Style for the create task box submit button */
+.create-task-box form button[type="submit"] {
+    background-color: #4caf50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.create-task-box form button[type="submit"]:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.hindenburg-icon {
+    font-size: 30px; /* Adjust the size of the icon as needed */
+    margin-bottom: 20px; /* Add margin to separate logo from navigation */
+    display: none;
+}
+
+.banner{
+    display: flex;
+}
+.banner .banners img{
+    background-repeat: no-repeat;
+     background-size: cover;
+      margin-left: 23px;
+       border-radius: 23px;
+ box-shadow: 12px 12px 12px 8px;
+
+}
+
+#hindenburgBox li{
+    margin-top: 13px;
+    list-style-type: none; 
+    font-size: 30px; 
+    margin-left: 10vw; 
+    margin-bottom: 22px;
+    text-decoration: none;
+}
+
+.footer{
+    margin-top: 33px;
+
+    height: 300px;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #ed1299,#e47966); /* Adjust colors as needed */
+}
+.footer .icons i{
+    font-size: 23px;
+    color: white;
+    margin-left: 33vw;
+    margin-top: 23px;
+}
+.card-container {
+    white-space: nowrap; /* Prevents cards from wrapping to a new line */
+}
+
+.card {
+    height: 300px;
+    display: inline-block; /* Display cards inline */
+    width: 50%; /* Adjust width as needed */
+    box-sizing: border-box; /* Include padding and border in the width */
+    vertical-align: top; /* Align cards vertically */
+    margin-right: 10px; /* Add some space between cards */
+}
+
+/* Example styles for card content */
+.card-container {
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Distribute space between cards */
+}
+
+.card {
+    width: 45%; /* Adjust width as needed */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+/* Example styles for card content */
+.card {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* responsive  */
+
+@media (max-width: 1540px) {
+    header {
+        background-color: red;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Align content to the center horizontally */
+        justify-content: flex-start;
+        padding: 20px; /* Adjust padding as needed */
+    }
+
+    /* Hide all elements inside the header */
+    .logo, nav {
+
+        display: none;
+    }
+    .hindenburg-icon {
+        margin-left: 90vw;
+        float: right;
+        color: white;
+        top: 23%;
+        font-size: 44px;
+        display: block;
+    }
+  
+}
+@media (max-width:1488px)
+{
+    .compose-box, .schedule-meeting-box, .create-task-box {
+        height: 390px;
+        display: none;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-116%, -50%);
+        background-color: #858ceb;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 400px;
+        margin-left: 33vw;
+    }
+}
+@media(max-width:1170px) {
+    .welcome h2 {
+        width: 100%;
+        margin-left: 40px;
+        font-size: 29px;
+        margin-bottom: 10px;
+    }
+}
+
+@media(max-width:1240px)
+{
+    header{
+        width: 100%;
+    }
+    .welcome h2{
+        height: 44px;
+        margin-left: -12px;
+        margin-right: 23px;
+        padding: 10px 10px 10px 10px;
+        font-size: 44px;
+        background-image: linear-gradient(to bottom, #0056b3, #ffffff); /* Adjust the colors as needed */
+        width: 100%;
+        text-align: center;
+    }
+    .welcome img {
+        display: none;
+        float: right;
+        margin-right: 10px;
+       bottom: 90px;
+       box-shadow: 20px 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    .overview p {
+        margin-top: 33px;
+        font-size: 43px;
+    }
+    .welcome .quick-actions button {
+        font-size: 34px;
+        height: 54px;
+        margin-top: 33px;
+        padding: 10px 20px;
+        margin-right: 10px;
+        background-color: #b5d2f2;
+        color: #952ac6;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
+}
+@media(max-width:990px) {
+    .compose-box, .schedule-meeting-box, .create-task-box {
+        height: 390px;
+        display: none;
+        position: absolute;
+        top: 80%;
+        left: 70%;
+        transform: translate(-116%, -50%);
+        background-color: #858ceb;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 400px;
+        margin-left: 33vw;
+    }
+}
+@media(max-width:965px) {
+    .compose-box, .schedule-meeting-box, .create-task-box {
+        height: 890px;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 70%;
+        transform: translate(-116%, -50%);
+        background-color: #858ceb;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 400px;
+        margin-left: 33vw;
+    }
+    
+}
+@media(max-width:1099px) {
+  .services {
+    flex-direction: column;
+  }
+}
+@media(max-width:1022px) {
+    .services h2{
+        margin-left: 212px;
+    }
+}
+@media(max-width:570px) {
+    .services .service p {
+        height: 300px;
+        width: 500px;
+        font-size: 30px;
+        margin-left: 30px;
+        width: 90%;
+        color: black;
+        background-color: transparent;
+    }
+    .service h2{
+        width: 90%;
+        margin-top: 23px;
+    }
+}
+@media(max-width:1365px) {
+    .banner {
+        flex-direction: column;
+    }
+}
+@media(max-width:790px) {
+    /* .footer {
+        margin-top: 33px;
+        height: 400px;
+        width: 100%;
+        background-image: linear-gradient(to bottom, #f178c2, #e47966);
+    } */
+    .footer img{
+
+            height: 70px;
+            width: 300px;
+            margin-left: 0vw;
+            margin-top: 20px;
+            border: 3px solid white;
+            border-radius: 58px;
+            cursor: pointer;
+    }
+    
+}
+@media(max-width:1110px) {
+    .card-container{
+        flex-direction: column;
+    }
+}
+@media(max-width:1730px) {
+    .card-container .card {
+        height: 400px;
+        width: 100%;
+    }
+    .card-container .card2 {
+        height: 400px;
+        width: 100%;
+    }
+}
+@media(max-width:530px) {
+    .card-container .card {
+
+       margin-top: 23px;
+       width: 100%;
+    }
+    .card-container .card P{
+        font-size: 13px;
+    }
+    .card-container .card2 {
+        /* margin-left: 23px;   */
+       margin-top: 23px;    
+    }
+}
+@media(max-width:700px) {
+    .welcome .quick-actions button {
+        font-size: 34px;
+        height: 64px;
+        margin-top: 33px;
+        padding: 10px 20px;
+        margin-right: 10px;
+        background-color: #b5d2f2;
+        color: #952ac6;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
+    .compose-box, .schedule-meeting-box, .create-task-box {
+        margin-top: 1px;
+        height: 500px;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 70%;
+        transform: translate(-116%, -50%);
+        background-color: #858ceb;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 400px;
+        margin-left: 33vw;
+    }
+}
+
+@media(max-width:) {
+    .card-container .card2 {
+        margin-top: 23px;
+        height: 400px;
+        width: 100%;
+    }
+}
